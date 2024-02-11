@@ -1,8 +1,57 @@
-.cy-container {
-    height: 50vh;
-    width: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
 }
 
-#cy{
-    height: 40vh;
+.cy-container {
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cy {
+    height: 60vh;
+    width: 40vw;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.graph-interface {
+    display: flex;
+    font-weight: bold;
+}
+
+.nodes_input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.edge_input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.node_number{
+    width: 350px;
+    outline: none;
+    height: 20px;
+    border: none;
+    border-bottom: 2px solid black;
+    font-weight: bold;
+}
+
+.edge_specification{
+    width: 350px;
+    height: 500px;
+    margin-bottom: 10px;
+    outline: none;
+    font-weight: bold;
 }
