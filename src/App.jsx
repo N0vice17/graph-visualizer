@@ -77,7 +77,7 @@ function App() {
         }
       ])
     }
-    console.log(cy.elements().components());
+    // console.log(cy.elements().components());
   }
   function download_graph_png() {
     const canvas = document.querySelector('canvas[data-id="layer2-node"]');
@@ -107,7 +107,7 @@ function App() {
           <div id="cy"></div>
         </div>
       </div>
-      <SpeedInsights />
+      {/* <SpeedInsights /> */}
     </>
   )
 }
