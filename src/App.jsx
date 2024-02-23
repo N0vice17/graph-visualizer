@@ -3,6 +3,7 @@ import './App.css'
 import cytoscape from 'cytoscape';
 import edgehandles from 'cytoscape-edgehandles';
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import Footer from "./Footer"
 
 cytoscape.use(edgehandles);
 function App() {
@@ -49,10 +50,8 @@ function App() {
     setcy(cy1);
   }, [])
 
-  // var maow = cy.edgehandles();
   function gen() {
     cy.elements().remove();
-    drawedge.enableDrawMode();
     const arr = [];
     const val = document.querySelector(".node_number")
     const n = val.value;
@@ -77,7 +76,6 @@ function App() {
         }
       ])
     }
-    // console.log(cy.elements().components());
   }
   function download_graph_png() {
     const canvas = document.querySelector('canvas[data-id="layer2-node"]');
@@ -86,6 +84,12 @@ function App() {
     link.href = dataURL;
     link.download = 'graph.png';
     link.click();
+  }
+  function Draw_on() {
+    drawedge.enableDrawMode();
+  }
+  function Draw_off() {
+    drawedge.disableDrawMode();
   }
   return (
     <>
@@ -105,8 +109,13 @@ function App() {
         <div className="cy-container">
           <p>Graph Visualization</p>
           <div id="cy"></div>
+          <div className="graph-canvas-buttons">
+            <button onClick={Draw_off}>Normal Mode</button>
+            <button onClick={Draw_on}>Draw Mode</button>
+          </div>
         </div>
       </div>
+      <Footer />
       <SpeedInsights />
     </>
   )

@@ -2,6 +2,8 @@
 
 * {
     font-family: 'Open Sans', sans-serif;
+    margin: 0px;
+    padding: 0px;
 }
 
 .cy-container {
@@ -40,7 +42,7 @@
     margin-top: 10px;
 }
 
-.node_number{
+.node_number {
     width: 350px;
     outline: none;
     height: 20px;
@@ -49,14 +51,50 @@
     font-weight: bold;
 }
 
-.edge_specification{
+.edge_specification {
     width: 350px;
     height: 500px;
     margin-bottom: 10px;
     outline: none;
     font-weight: bold;
+    border: 2px solid rgb(160, 160, 160);
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 10px;
 }
 
-.download-png{
+.download-png {
     margin-left: 10px;
+}
+
+.graph-canvas-buttons {
+    margin-top: 10px;
+}
+
+.graph-canvas-buttons button {
+    margin: 10px;
+    font-size: 14px;
+    height: 32px;
+    width: 150px;
+    border-radius: 3px;
+    background-color: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.graph-buttons button {
+    font-size: 14px;
+    height: 32px;
+    width: 150px;
+    border-radius: 3px;
+    background-color: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+#cy {
+    border-radius: 5px;
+    border: 2px solid rgb(160, 160, 160)
 }
