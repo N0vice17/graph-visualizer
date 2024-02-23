@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import cytoscape from 'cytoscape';
 import edgehandles from 'cytoscape-edgehandles';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 cytoscape.use(edgehandles);
 function App() {
@@ -76,6 +77,7 @@ function App() {
         }
       ])
     }
+    console.log(cy.elements().components());
   }
   function download_graph_png() {
     const canvas = document.querySelector('canvas[data-id="layer2-node"]');
@@ -88,7 +90,7 @@ function App() {
   return (
     <>
       <div className="graph-interface">
-        <div className="nodes_input">
+        <div className="nodes_input">import {SpeedInsights} from "@vercel/speed-insights/next"
           <label>Number Of Nodes</label>
           <input onChange={gen} type="text" className="node_number"></input>
           <div className="edge_input">
@@ -105,6 +107,7 @@ function App() {
           <div id="cy"></div>
         </div>
       </div>
+      <SpeedInsights />
     </>
   )
 }
