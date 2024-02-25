@@ -43,12 +43,13 @@
 }
 
 .node_number {
-    width: 350px;
+    padding: 2px;
+    width: 365px;
     outline: none;
     height: 20px;
-    border: none;
-    border-bottom: 2px solid black;
+    border: 2px solid rgb(160, 160, 160);
     font-weight: bold;
+    border-radius: 3px;
 }
 
 .edge_specification {

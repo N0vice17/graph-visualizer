@@ -40,7 +40,9 @@ function App() {
             'line-color': 'black',
             'target-arrow-color': 'black',
             'target-arrow-shape': 'triangle',
-            'curve-style': 'bezier'
+            'curve-style': 'bezier',
+            'text-halign': 'center',
+            'text-valign': 'center',
           }
         }
       ],
@@ -70,11 +72,19 @@ function App() {
     cy.edges().remove();
     const edge1 = document.querySelector(".edge_specification").value.split('\n');
     for (var i = 0; i < edge1.length; i++) {
-      cy.add([
-        {
-          data: { source: `${edge1[i].split(' ')[0]}`, target: `${edge1[i].split(' ')[1]}` }
+      // console.log(edge1[i].split(' ')[1] + " " + edge1[i].split(' ').length);
+      if (edge1[i].split(' ')[0] != undefined && edge1[i].split(' ')[1] != undefined) {
+        try {
+          cy.add([
+            {
+              data: { source: `${edge1[i].split(' ')[0]}`, target: `${edge1[i].split(' ')[1]}` }
+            }
+          ])
         }
-      ])
+        catch (error) {
+
+        }
+      }
     }
   }
   function download_graph_png() {
@@ -99,9 +109,8 @@ function App() {
           <input onChange={gen} type="text" className="node_number"></input>
           <div className="edge_input">
             <label>Edges</label>
-            <textarea className="edge_specification"></textarea>
+            <textarea onChange={add_edge} className="edge_specification"></textarea>
             <div className="graph-buttons">
-              <button onClick={add_edge} className="add_edge">Add Edge</button>
               <button onClick={download_graph_png} className="download-png">Download Png</button>
             </div>
           </div>
