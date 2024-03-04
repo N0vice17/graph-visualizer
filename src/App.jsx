@@ -9,6 +9,7 @@ cytoscape.use(edgehandles);
 function App() {
   const [cy, setcy] = useState([]);
   const [drawedge, setdrawedge] = useState({});
+  const [directed, setdirected] = useState('none');
   let options = {
     name: 'circle',
     fit: true,
@@ -39,10 +40,8 @@ function App() {
             'width': 2,
             'line-color': 'black',
             'target-arrow-color': 'black',
-            'target-arrow-shape': 'triangle',
+            'target-arrow-shape': `${directed}`,
             'curve-style': 'bezier',
-            'text-halign': 'center',
-            'text-valign': 'center',
           }
         }
       ],
@@ -67,6 +66,8 @@ function App() {
     }
     cy.add(arr);
     cy.layout(options).run();
+    add_edge();
+    graph_specification(directed);
   }
   function add_edge() {
     cy.edges().remove();
@@ -86,6 +87,7 @@ function App() {
         }
       }
     }
+    graph_specification(directed);
   }
   function download_graph_png() {
     const canvas = document.querySelector('canvas[data-id="layer2-node"]');
@@ -97,9 +99,16 @@ function App() {
   }
   function Draw_on() {
     drawedge.enableDrawMode();
+    graph_specification(directed);
   }
   function Draw_off() {
     drawedge.disableDrawMode();
+  }
+  function graph_specification(num) {
+    setdirected(num);
+    cy.edges().style({
+      'target-arrow-shape': `${num}`,
+    })
   }
   return (
     <>
@@ -116,11 +125,18 @@ function App() {
           </div>
         </div>
         <div className="cy-container">
-          <p>Graph Visualization</p>
+          <div className="graph-specification">
+            <input type="radio" name="graph" onClick={event => graph_specification('triangle')}></input>
+            <label>Directed</label>
+            <input type="radio" name="graph" onChange={event => graph_specification('none')}></input>
+            <label>UnDirected</label>
+          </div>
           <div id="cy"></div>
           <div className="graph-canvas-buttons">
-            <button onClick={Draw_off}>Normal Mode</button>
-            <button onClick={Draw_on}>Draw Mode</button>
+            <input type="radio" name="draw" onChange={Draw_off}></input>
+            <label>Normal Mode</label>
+            <input type="radio" name="draw" onChange={Draw_on}></input>
+            <label>Draw Mode</label>
           </div>
         </div>
       </div>

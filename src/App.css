@@ -72,18 +72,6 @@
     margin-top: 10px;
 }
 
-.graph-canvas-buttons button {
-    margin: 10px;
-    font-size: 14px;
-    height: 32px;
-    width: 150px;
-    border-radius: 3px;
-    background-color: white;
-    border: 2px solid black;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-}
-
 .graph-buttons button {
     font-size: 14px;
     height: 32px;
@@ -98,4 +86,36 @@
 #cy {
     border-radius: 5px;
     border: 2px solid rgb(160, 160, 160)
+}
+
+.graph-canvas-buttons,
+.graph-specification,
+label {
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.graph-canvas-buttons,
+.graph-specification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graph-canvas-buttons input {
+    margin-left: 10px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.graph-specification input {
+    margin-left: 10px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.graph-specification {
+    margin-bottom: 10px;
 }
