@@ -7,7 +7,7 @@
 }
 
 .cy-container {
-    height: 95vh;
+    height: 80vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -25,6 +25,20 @@
 .graph-interface {
     display: flex;
     font-weight: bold;
+    background-color: rgb(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.background {
+    box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.1);
+    width: 96%;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url('/Breadth-First-Search-Algorithm.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .nodes_input {
@@ -54,7 +68,7 @@
 
 .edge_specification {
     width: 350px;
-    height: 500px;
+    height: 300px;
     margin-bottom: 10px;
     outline: none;
     font-weight: bold;
@@ -72,18 +86,6 @@
     margin-top: 10px;
 }
 
-.graph-canvas-buttons button {
-    margin: 10px;
-    font-size: 14px;
-    height: 32px;
-    width: 150px;
-    border-radius: 3px;
-    background-color: white;
-    border: 2px solid black;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-}
-
 .graph-buttons button {
     font-size: 14px;
     height: 32px;
@@ -98,4 +100,36 @@
 #cy {
     border-radius: 5px;
     border: 2px solid rgb(160, 160, 160)
+}
+
+.graph-canvas-buttons,
+.graph-specification,
+label {
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.graph-canvas-buttons,
+.graph-specification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graph-canvas-buttons input {
+    margin-left: 10px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.graph-specification input {
+    margin-left: 10px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.graph-specification {
+    margin-bottom: 10px;
 }
