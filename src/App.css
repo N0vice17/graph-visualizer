@@ -7,75 +7,47 @@
 }
 
 .cy-container {
-    height: 80vh;
-    width: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 5px;
+    height: 98.5vh;
+    border: 2px solid rgb(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-right: 2px;
 }
 
 #cy {
-    height: 60vh;
-    width: 40vw;
+    height: 80vh;
+    width: 85%;
     border: 1px solid black;
     border-radius: 4px;
-}
-
-.graph-interface {
-    display: flex;
-    font-weight: bold;
-    background-color: rgb(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-}
-
-.background {
-    box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.1);
-    width: 96%;
-    border-radius: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: url('/Breadth-First-Search-Algorithm.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    border-radius: 5px;
+    border: 2px solid rgb(160, 160, 160)
 }
 
 .nodes_input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 50%;
+    width: 100%;
+    height: 98.5vh;
+    margin-top: 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgb(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-left: 2px;
 }
 
 .edge_input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
-}
-
-.node_number {
-    padding: 2px;
-    width: 365px;
-    outline: none;
-    height: 20px;
-    border: 2px solid rgb(160, 160, 160);
-    font-weight: bold;
-    border-radius: 3px;
-}
-
-.edge_specification {
-    width: 350px;
-    height: 300px;
-    margin-bottom: 10px;
-    outline: none;
-    font-weight: bold;
-    border: 2px solid rgb(160, 160, 160);
-    border-radius: 5px;
-    font-size: 15px;
-    padding: 10px;
+    position: relative;
+    top: 20%;
 }
 
 .download-png {
@@ -84,22 +56,6 @@
 
 .graph-canvas-buttons {
     margin-top: 10px;
-}
-
-.graph-buttons button {
-    font-size: 14px;
-    height: 32px;
-    width: 150px;
-    border-radius: 3px;
-    background-color: white;
-    border: 2px solid black;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-}
-
-#cy {
-    border-radius: 5px;
-    border: 2px solid rgb(160, 160, 160)
 }
 
 .graph-canvas-buttons,
@@ -132,4 +88,25 @@ label {
 
 .graph-specification {
     margin-bottom: 10px;
+}
+
+.gutter.gutter-horizontal {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+    cursor: col-resize;
+}
+
+.gutter.gutter-horizontal:hover {
+    background-color: blue;
+}
+
+.gutter {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.split {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
 }

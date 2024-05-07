@@ -3,8 +3,10 @@ import './App.css'
 import cytoscape from 'cytoscape';
 import edgehandles from 'cytoscape-edgehandles';
 import { SpeedInsights } from "@vercel/speed-insights/react"
-import Footer from "./Footer"
-import Header from "./header"
+import Header from "./Header"
+import Split from 'react-split'
+import { Input, Textarea, Button, Card, CardHeader, CardBody, Heading, Text } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
 
 cytoscape.use(edgehandles);
 function App() {
@@ -112,21 +114,24 @@ function App() {
   }
   return (
     <>
-      <Header />
-      <div className='background'>
-        <div className="graph-interface">
+      <ChakraProvider>
+        <Split className="split">
           <div className="nodes_input">
-            <label>Number Of Nodes</label>
-            <input onChange={gen} type="text" className="node_number"></input>
+            <Card variant="elevated" marginTop="15px" width="95%">
+              <CardHeader>
+                <Heading size='md'>Graph Visualizer</Heading>
+              </CardHeader>
+            </Card>
             <div className="edge_input">
-              <label>Edges</label>
-              <textarea onChange={add_edge} className="edge_specification"></textarea>
-              <div className="graph-buttons">
-                <button onClick={download_graph_png} className="download-png">Download Png</button>
-              </div>
+              <Input variant='filled' onChange={gen} placeholder='Enter Number Of Vertices' width='200%' marginBottom="10px" className="node_number" />
+              <Textarea onChange={add_edge} placeholder='Enter Edges' variant="filled" width="200%" height="338px" className="edge_specification" />
+              <Button onClick={download_graph_png} className="download-png" colorScheme='teal' variant='solid' marginTop="10px">
+                Download Png
+              </Button>
             </div>
           </div>
           <div className="cy-container">
+            <div>Visualization</div>
             <div className="graph-specification">
               <input type="radio" name="graph" onClick={event => graph_specification('triangle')}></input>
               <label>Directed</label>
@@ -141,10 +146,9 @@ function App() {
               <label>Draw Mode</label>
             </div>
           </div>
-        </div>
-      </div>
-      {/* <Footer /> */}
-      <SpeedInsights />
+        </Split>
+        <SpeedInsights />
+      </ChakraProvider>
     </>
   )
 }
