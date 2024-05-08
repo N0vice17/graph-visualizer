@@ -3,9 +3,17 @@ import './App.css'
 import cytoscape from 'cytoscape';
 import edgehandles from 'cytoscape-edgehandles';
 import { SpeedInsights } from "@vercel/speed-insights/react"
-import Header from "./Header"
 import Split from 'react-split'
-import { Input, Textarea, Button, Card, CardHeader, CardBody, Heading, Text } from '@chakra-ui/react'
+import {
+  Input, Textarea, Button, Card, CardHeader, Heading, Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+} from '@chakra-ui/react'
 import { ChakraProvider } from '@chakra-ui/react'
 
 cytoscape.use(edgehandles);
@@ -48,7 +56,6 @@ function App() {
           }
         }
       ],
-      zoomingEnabled: false,
     });
     setdrawedge(cy1.edgehandles());
     setcy(cy1);
@@ -129,22 +136,28 @@ function App() {
                 Download Png
               </Button>
             </div>
+            <div className="Fotter">Developed by Debojit Ganguly</div>
           </div>
           <div className="cy-container">
-            <div>Visualization</div>
             <div className="graph-specification">
-              <input type="radio" name="graph" onClick={event => graph_specification('triangle')}></input>
-              <label>Directed</label>
-              <input type="radio" name="graph" onChange={event => graph_specification('none')}></input>
-              <label>UnDirected</label>
+              <Menu closeOnSelect={false}>
+                <MenuButton as={Button} colorScheme='green'>
+                  Graph Specification
+                </MenuButton>
+                <MenuList minWidth='240px'>
+                  <MenuOptionGroup defaultValue='asc' title='Type' type='radio'>
+                    <MenuItemOption value="directed" onClick={event => graph_specification('triangle')}>Directed</MenuItemOption>
+                    <MenuItemOption value="undirected" onClick={event => graph_specification('none')}>UnDirected</MenuItemOption>
+                  </MenuOptionGroup>
+                  <MenuDivider />
+                  <MenuOptionGroup title='Draw Mode' type='radio'>
+                    <MenuItemOption value='normal' onClick={Draw_off}>Normal Mode</MenuItemOption>
+                    <MenuItemOption value='draw' onClick={Draw_on}>Draw Mode</MenuItemOption>
+                  </MenuOptionGroup>
+                </MenuList>
+              </Menu>
             </div>
             <div id="cy"></div>
-            <div className="graph-canvas-buttons">
-              <input type="radio" name="draw" onChange={Draw_off}></input>
-              <label>Normal Mode</label>
-              <input type="radio" name="draw" onChange={Draw_on}></input>
-              <label>Draw Mode</label>
-            </div>
           </div>
         </Split>
         <SpeedInsights />
