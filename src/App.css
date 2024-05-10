@@ -39,19 +39,6 @@
     margin-left: 2px;
 }
 
-.Fotter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    margin-top: 39vh;
-    border-bottom-left-radius: 9px;
-    border-bottom-right-radius: 9px;
-    border-top: 3px solid #2C7A7B;
-    height: 40px;
-}
-
 .edge_input {
     display: flex;
     flex-direction: column;

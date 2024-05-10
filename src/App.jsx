@@ -136,7 +136,6 @@ function App() {
                 Download Png
               </Button>
             </div>
-            <div className="Fotter">Developed by Debojit Ganguly</div>
           </div>
           <div className="cy-container">
             <div className="graph-specification">
